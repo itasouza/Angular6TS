@@ -1,0 +1,39 @@
+  <div class="lista">
+    <h1>Página de clientes</h1>
+
+   <label>Nome:</label> 
+   <input type="text" [(ngModel)]="cliente.nome" >
+
+   <label>Idade:</label> 
+   <input type="text" [(ngModel)]="cliente.idade" >
+  
+
+   <label>Valor:</label> 
+   <input type="text" [(ngModel)]="cliente.valor" >
+
+   <label>Data:</label> 
+   <input type="text" [(ngModel)]="cliente.data" >
+
+   <button type="button" (click)="addCliente()">Adicionar Cliente</button>
+
+   <ul>
+       <li *ngFor="let item of clientes" >
+           {{item.nome | uppercase  }} - 
+           {{item.idade}} - 
+           {{item.valor | formatCurrency }}  -
+           {{item.data | formatDate}}
+       </li>
+
+       <!-- 
+       <li 
+         [id]="'lista-'+item.nome"
+         [ngClass]="{'verde':item.idade < 30, 'vermelho':item.idade > 30, 'fontg':item.idade > 50}"   
+         *ngFor="let item of clientes" 
+         [innerHtml]="item.nome + '-' + item.idade" >
+          {{item.nome}} - {{item.idade}} 
+       </li>
+       -->
+
+   </ul>
+
+  </div>
